@@ -1,0 +1,8 @@
+---
+title: "Clase 1: Ingreso de datos"
+author: "David Murillo"
+format: html
+---
+
+En esta clase aprederas como ingresar diferentes estructuras de datos a la interfaz de RStudio
+
