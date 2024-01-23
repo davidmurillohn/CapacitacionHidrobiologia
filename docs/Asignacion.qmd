@@ -4,23 +4,24 @@ author: "David Murillo"
 format: html
 ---
 
-## Quarto
+## Ejercicio 1
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+Con la base de datos "penguins_size.csv", sigue las siguientes instrucciones:
 
-## Running Code
+- Cargar la base de datos:
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+Utiliza las funciones necesarias para cargar la base de datos "penguins_size.csv" en tu entorno de trabajo. Asegúrate de tener acceso a la información contenida en el conjunto de datos.
 
-```{r}
-1 + 1
-```
+- Filtrar por sexo Hembra:
 
-You can add options to executable code like this 
+Aplica las funciones adecuadas para filtrar únicamente las observaciones correspondientes al sexo femenino en el conjunto de datos. De esta manera, obtendrás un subconjunto que incluye solo las hembras.
 
-```{r}
-#| echo: false
-2 * 2
-```
+- Seleccionar una isla en específico:
 
-The `echo: false` option disables the printing of code (only output is displayed).
+Selecciona una isla específica del conjunto de datos utilizando las funciones apropiadas. Puedes elegir la isla que prefieras y filtrar las observaciones correspondientes a esa ubicación.
+
+- Presentar el resumen de alguna variable, por sexo y por isla:
+
+Utiliza funciones de resumen estadístico para presentar información relevante sobre alguna variable de interés, considerando la distinción por sexo y por isla. Puede ser útil visualizar esta información de manera clara y comprensible.
+ 
+ 
