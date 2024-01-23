@@ -4,15 +4,62 @@ author: "David Murillo"
 format: html
 ---
 
-En esta clase aprederas como ingresar diferentes estructuras de datos a la interfaz de RStudio
+# Introducción
 
-Cargar base de datos
+En esta clase, nos enfocaremos en el proceso de ingreso de datos a la interfaz de RStudio. El manejo eficiente de datos es fundamental en cualquier análisis o proyecto en R, y para ello, es esencial comprender cómo cargar diferentes estructuras de datos.
+
+A lo largo de la sesión, exploraremos el ingreso de datos desde diversas fuentes, incluyendo archivos de texto (.txt), archivos CSV (.csv), así como la importación de datos desde hojas de cálculo de Excel. Este conocimiento resulta crucial para poder trabajar con conjuntos de datos provenientes de distintas fuentes y formatos.
+
+# Cargar base de datos
+
+Uno de los primeros pasos en cualquier análisis de datos es cargar la información que se va a estudiar. Abordaremos el proceso de carga de bases de datos en RStudio, y te proporcionaremos las herramientas necesarias para realizar esta tarea de manera efectiva. ¡Comencemos!
+
+
+- Importar base de datos .txt delimitados por espacio
 
 ```{r}
 Momoto <- read.delim("C:/Users/david/OneDrive - University of Massachusetts/HN Biology Investigation/Cursos/CapacitacionHidrobiologia/data/kebmot.txt")
 ```
 
+- Importar base de datos .txt delimitados por espacio
+
 ```{r}
-head(Momoto)
+water <- read.csv("C:/Users/david/OneDrive - University of Massachusetts/HN Biology Investigation/Cursos/CapacitacionHidrobiologia/data/water_potability.csv")
+```
+
+
+Cargar paquete
+
+```{r}
+library(tidyverse)
+```
+
+
+## Filtering Data
+
+Let's start by cleaning the dataset and filtering out the observations that are not approved.
+
+```{r}
+
+MomotoClean <- Momoto %>% 
+  filter(APPROVED == 1)
+```
+
+## Selected Columns
+Now, let's select specific columns of interest from the cleaned dataset.
+
+```{r}
+MomotoSelected <- MomotoClean %>% 
+  select(GLOBAL.UNIQUE.IDENTIFIER, COMMON.NAME, SCIENTIFIC.NAME, COUNTRY, STATE, LATITUDE, LONGITUDE, OBSERVATION.DATE)
+```
+
+
+## Grouping and Summarizing
+We can group the data by country and summarize the number of observations in each country.
+
+```{r}
+MomotoSummary <- MomotoSelected %>% 
+  group_by(COUNTRY) %>% 
+  summarise(Observations = n())
 ```
 

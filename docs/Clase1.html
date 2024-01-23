@@ -101,100 +101,71 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>En esta clase aprederas como ingresar diferentes estructuras de datos a la interfaz de RStudio</p>
-<p>Cargar base de datos</p>
+<section id="introducción" class="level1">
+<h1>Introducción</h1>
+<p>En esta clase, nos enfocaremos en el proceso de ingreso de datos a la interfaz de RStudio. El manejo eficiente de datos es fundamental en cualquier análisis o proyecto en R, y para ello, es esencial comprender cómo cargar diferentes estructuras de datos.</p>
+<p>A lo largo de la sesión, exploraremos el ingreso de datos desde diversas fuentes, incluyendo archivos de texto (.txt), archivos CSV (.csv), así como la importación de datos desde hojas de cálculo de Excel. Este conocimiento resulta crucial para poder trabajar con conjuntos de datos provenientes de distintas fuentes y formatos.</p>
+</section>
+<section id="cargar-base-de-datos" class="level1">
+<h1>Cargar base de datos</h1>
+<p>Uno de los primeros pasos en cualquier análisis de datos es cargar la información que se va a estudiar. Abordaremos el proceso de carga de bases de datos en RStudio, y te proporcionaremos las herramientas necesarias para realizar esta tarea de manera efectiva. ¡Comencemos!</p>
+<ul>
+<li>Importar base de datos .txt delimitados por espacio</li>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Momoto <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"C:/Users/david/OneDrive - University of Massachusetts/HN Biology Investigation/Cursos/CapacitacionHidrobiologia/data/kebmot.txt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<ul>
+<li>Importar base de datos .txt delimitados por espacio</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Momoto)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                        GLOBAL.UNIQUE.IDENTIFIER           LAST.EDITED.DATE
-1 URN:CornellLabOfOrnithology:EBIRD:OBS454782401        2017-01-09 23:27:03
-2 URN:CornellLabOfOrnithology:EBIRD:OBS466304557        2019-08-09 23:38:08
-3 URN:CornellLabOfOrnithology:EBIRD:OBS469833281        2019-08-09 23:38:09
-4 URN:CornellLabOfOrnithology:EBIRD:OBS478865499 2021-07-06 19:28:48.896072
-5 URN:CornellLabOfOrnithology:EBIRD:OBS454566542 2021-07-06 19:28:48.896072
-6 URN:CornellLabOfOrnithology:EBIRD:OBS600569967  2022-10-26 03:23:14.40742
-  TAXONOMIC.ORDER CATEGORY TAXON.CONCEPT.ID        COMMON.NAME
-1            9525  species avibase-A8FEEA01 Keel-billed Motmot
-2            9525  species avibase-A8FEEA01 Keel-billed Motmot
-3            9525  species avibase-A8FEEA01 Keel-billed Motmot
-4            9525  species avibase-A8FEEA01 Keel-billed Motmot
-5            9525  species avibase-A8FEEA01 Keel-billed Motmot
-6            9525  species avibase-A8FEEA01 Keel-billed Motmot
-     SCIENTIFIC.NAME SUBSPECIES.COMMON.NAME SUBSPECIES.SCIENTIFIC.NAME
-1 Electron carinatum                     NA                         NA
-2 Electron carinatum                     NA                         NA
-3 Electron carinatum                     NA                         NA
-4 Electron carinatum                     NA                         NA
-5 Electron carinatum                     NA                         NA
-6 Electron carinatum                     NA                         NA
-  EXOTIC.CODE OBSERVATION.COUNT BREEDING.CODE BREEDING.CATEGORY BEHAVIOR.CODE
-1          NA                 1                                              
-2          NA                 3                                              
-3          NA                 3                                              
-4          NA                 1                                              
-5          NA                 1                                              
-6          NA                 1                                              
-  AGE.SEX  COUNTRY COUNTRY.CODE     STATE STATE.CODE COUNTY COUNTY.CODE
-1      NA Honduras           HN Atlántida      HN-AT     NA          NA
-2      NA Honduras           HN Atlántida      HN-AT     NA          NA
-3      NA Honduras           HN Atlántida      HN-AT     NA          NA
-4      NA Honduras           HN Atlántida      HN-AT     NA          NA
-5      NA Honduras           HN Atlántida      HN-AT     NA          NA
-6      NA Honduras           HN Atlántida      HN-AT     NA          NA
-  IBA.CODE BCR.CODE USFWS.CODE ATLAS.BLOCK
-1       NA       NA         NA          NA
-2       NA       NA         NA          NA
-3       NA       NA         NA          NA
-4       NA       NA         NA          NA
-5       NA       NA         NA          NA
-6       NA       NA         NA          NA
-                                              LOCALITY LOCALITY.ID
-1                           Río Santiago Nature Resort    L1676287
-2                           Río Santiago Nature Resort    L1676287
-3                           Río Santiago Nature Resort    L1676287
-4                           Río Santiago Nature Resort    L1676287
-5                           Río Santiago Nature Resort    L1676287
-6 Tela Atlántida, Tela HN-Atlántida (15.7900,-87.4439)    L7229541
-  LOCALITY.TYPE LATITUDE LONGITUDE OBSERVATION.DATE TIME.OBSERVATIONS.STARTED
-1             H 15.59314 -87.06124       2017-01-05                  14:08:00
-2             H 15.59314 -87.06124       2017-01-26                  06:30:00
-3             H 15.59314 -87.06124       2017-01-26                  06:30:00
-4             H 15.59314 -87.06124       2017-01-04                  06:30:00
-5             H 15.59314 -87.06124       2017-01-04                  06:30:00
-6             P 15.78997 -87.44387       2017-01-01                  07:29:00
-  OBSERVER.ID SAMPLING.EVENT.IDENTIFIER PROTOCOL.TYPE PROTOCOL.CODE
-1  obsr555085                 S33474319     Traveling           P22
-2  obsr294134                 S34413559     Traveling           P22
-3  obsr402712                 S34741518     Traveling           P22
-4  obsr895260                 S35444448     Traveling           P22
-5  obsr419548                 S33454576     Traveling           P22
-6  obsr683567                 S44613484     Traveling           P22
-  PROJECT.CODE DURATION.MINUTES EFFORT.DISTANCE.KM EFFORT.AREA.HA
-1        EBIRD               35              0.402             NA
-2        EBIRD              270              3.000             NA
-3        EBIRD              270              3.000             NA
-4        EBIRD              120              0.600             NA
-5        EBIRD              120              0.600             NA
-6        EBIRD              500              5.000             NA
-  NUMBER.OBSERVERS ALL.SPECIES.REPORTED GROUP.IDENTIFIER HAS.MEDIA APPROVED
-1                1                    1                          0        1
-2                4                    1         G2233474         0        1
-3                4                    1         G2233474         0        1
-4                4                    1         G2123141         0        1
-5                4                    1         G2123141         0        1
-6                1                    1                          0        1
-  REVIEWED REASON                        TRIP.COMMENTS SPECIES.COMMENTS  X
-1        0     NA &lt;br&gt;Submitted from eBird Android 1.3                  NA
-2        0     NA                                                       NA
-3        0     NA                                                       NA
-4        0     NA                                                       NA
-5        0     NA            Birding around the cabins                  NA
-6        0     NA                                                       NA</code></pre>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>water <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"C:/Users/david/OneDrive - University of Massachusetts/HN Biology Investigation/Cursos/CapacitacionHidrobiologia/data/water_potability.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Cargar paquete</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'lubridate' was built under R version 4.3.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.3     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.3     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.0
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
 </div>
+<section id="filtering-data" class="level2">
+<h2 class="anchored" data-anchor-id="filtering-data">Filtering Data</h2>
+<p>Let’s start by cleaning the dataset and filtering out the observations that are not approved.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>MomotoClean <span class="ot">&lt;-</span> Momoto <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(APPROVED <span class="sc">==</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="selected-columns" class="level2">
+<h2 class="anchored" data-anchor-id="selected-columns">Selected Columns</h2>
+<p>Now, let’s select specific columns of interest from the cleaned dataset.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>MomotoSelected <span class="ot">&lt;-</span> MomotoClean <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(GLOBAL.UNIQUE.IDENTIFIER, COMMON.NAME, SCIENTIFIC.NAME, COUNTRY, STATE, LATITUDE, LONGITUDE, OBSERVATION.DATE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="grouping-and-summarizing" class="level2">
+<h2 class="anchored" data-anchor-id="grouping-and-summarizing">Grouping and Summarizing</h2>
+<p>We can group the data by country and summarize the number of observations in each country.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>MomotoSummary <span class="ot">&lt;-</span> MomotoSelected <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(COUNTRY) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Observations =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
 
 </main>
 <!-- /main column -->

@@ -1,20 +1,28 @@
 ---
-title: "Manejo Y vizualizacion de datos con R"
+title: "Capacitación en Manejo, Limpieza, Filtrado, Visualización y Presentación de Datos con R"
 author: "David Murillo"
 format: html
 ---
 
-## Quarto
-
-En esta pagina encontraras los ejercicios de la capacitancion de manejo y vizualizacion de datos con Rstudio, asi mismo encontraras las asignaciones que tendras que realizar dia con dia hasta terminar la capacitancion
-
-[Ingreso de datos](Clase1.html)
-
-[Limpieza y filtrado de datos](Clase2.html)
-
-[Vizualisacion de datos](Clase3.html)
-
-[Presentacion de los resultados](Clase4.html)
+<div style="display: flex;">
+  <img src="imagenes/UNAH.png" style="width: 20%;">
+  <span style="flex-grow: 1;"></span> <!-- Empty space between the first two images -->
+  <img src="imagenes/Biologiaescuela.png" style="width: 20%;">
+   <img src="imagenes/HN Biology Inv Circle.jpg" style="width: 20%;">
+</div>
 
 
-![HN Biology Investigation](HN Cursos publicidad/HN Biology Inv large.jpg)
+La constante evolución en el ámbito de la investigación biológica demanda el fortalecimiento de habilidades técnicas que permitan optimizar el manejo y análisis de datos. En este contexto, HN Biology Investigation se complace en presentar la capacitación en "Manejo, Limpieza, Filtrado, Visualización y Presentación de Datos con R", dirigida al personal técnico del Laboratorio de Hidrobiología de la Carrera de Biología en la Universidad Nacional Autónoma de Honduras.
+
+[Asignacion](Asignacion.html)
+
+[Clase 1: Ingreso de datos](Clase1.html)
+
+[Clase 2: Limpieza y filtrado de datos](Clase2.html)
+
+[Clase 3: Vizualisacion de datos](Clase3.html)
+
+[Clase 4: Presentacion de los resultados](Clase4.html)
+
+
+![HN Biology Investigation](imagenes/HN Biology Inv large.jpg)
