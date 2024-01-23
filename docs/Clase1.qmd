@@ -35,9 +35,11 @@ library(tidyverse)
 ```
 
 
-## Filtering Data
+## Filtrar Datos
 
-Let's start by cleaning the dataset and filtering out the observations that are not approved.
+Comencemos limpiando el conjunto de datos y filtrando las observaciones que no están aprobadas.
+
+Crear un nuevo conjunto de datos llamado "MomotoClean" que contiene solo las observaciones aprobadas.
 
 ```{r}
 
@@ -45,8 +47,25 @@ MomotoClean <- Momoto %>%
   filter(APPROVED == 1)
 ```
 
-## Selected Columns
-Now, let's select specific columns of interest from the cleaned dataset.
+:::{.note}
+
+**Explicación:**
+
+Momoto es el nombre del conjunto de datos original.
+
+`%>%` es el operador pipe que se utiliza para encadenar funciones en R. Esto significa que el resultado de la operación anterior se pasa como entrada a la siguiente operación.
+
+`filter(APPROVED == 1)` se utiliza para seleccionar solo las filas donde la columna "APPROVED" es igual a 1. En otras palabras, esto filtra las observaciones que han sido aprobadas (ya que se asume que "APPROVED" toma el valor de 1 para las observaciones aprobadas y posiblemente otro valor para las no aprobadas).
+
+El resultado de la operación de filtrado se asigna a un nuevo conjunto de datos llamado "MomotoClean".
+
+En resumen, el código filtra el conjunto de datos original para retener solo las observaciones que han sido aprobadas, creando así un nuevo conjunto de datos llamado "MomotoClean" que contiene únicamente las observaciones aprobadas.
+
+:::
+
+## Seleccion de Columnas
+
+Ahora, seleccionemos columnas específicas de interés del conjunto de datos limpio.
 
 ```{r}
 MomotoSelected <- MomotoClean %>% 
@@ -54,8 +73,9 @@ MomotoSelected <- MomotoClean %>%
 ```
 
 
-## Grouping and Summarizing
-We can group the data by country and summarize the number of observations in each country.
+## Agrupar y Resumir
+
+Podemos agrupar los datos por país y resumir el número de observaciones en cada país.
 
 ```{r}
 MomotoSummary <- MomotoSelected %>% 

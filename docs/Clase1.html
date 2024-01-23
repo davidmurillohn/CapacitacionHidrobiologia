@@ -140,25 +140,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
 </div>
-<section id="filtering-data" class="level2">
-<h2 class="anchored" data-anchor-id="filtering-data">Filtering Data</h2>
-<p>Let’s start by cleaning the dataset and filtering out the observations that are not approved.</p>
+<section id="filtrar-datos" class="level2">
+<h2 class="anchored" data-anchor-id="filtrar-datos">Filtrar Datos</h2>
+<p>Comencemos limpiando el conjunto de datos y filtrando las observaciones que no están aprobadas.</p>
+<p>Crear un nuevo conjunto de datos llamado “MomotoClean” que contiene solo las observaciones aprobadas.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>MomotoClean <span class="ot">&lt;-</span> Momoto <span class="sc">%&gt;%</span> </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(APPROVED <span class="sc">==</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="note">
+<p><strong>Explicación:</strong></p>
+<p>Momoto es el nombre del conjunto de datos original.</p>
+<p><code>%&gt;%</code> es el operador pipe que se utiliza para encadenar funciones en R. Esto significa que el resultado de la operación anterior se pasa como entrada a la siguiente operación.</p>
+<p><code>filter(APPROVED == 1)</code> se utiliza para seleccionar solo las filas donde la columna “APPROVED” es igual a 1. En otras palabras, esto filtra las observaciones que han sido aprobadas (ya que se asume que “APPROVED” toma el valor de 1 para las observaciones aprobadas y posiblemente otro valor para las no aprobadas).</p>
+<p>El resultado de la operación de filtrado se asigna a un nuevo conjunto de datos llamado “MomotoClean”.</p>
+<p>En resumen, el código filtra el conjunto de datos original para retener solo las observaciones que han sido aprobadas, creando así un nuevo conjunto de datos llamado “MomotoClean” que contiene únicamente las observaciones aprobadas.</p>
+</div>
 </section>
-<section id="selected-columns" class="level2">
-<h2 class="anchored" data-anchor-id="selected-columns">Selected Columns</h2>
-<p>Now, let’s select specific columns of interest from the cleaned dataset.</p>
+<section id="seleccion-de-columnas" class="level2">
+<h2 class="anchored" data-anchor-id="seleccion-de-columnas">Seleccion de Columnas</h2>
+<p>Ahora, seleccionemos columnas específicas de interés del conjunto de datos limpio.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>MomotoSelected <span class="ot">&lt;-</span> MomotoClean <span class="sc">%&gt;%</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(GLOBAL.UNIQUE.IDENTIFIER, COMMON.NAME, SCIENTIFIC.NAME, COUNTRY, STATE, LATITUDE, LONGITUDE, OBSERVATION.DATE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="grouping-and-summarizing" class="level2">
-<h2 class="anchored" data-anchor-id="grouping-and-summarizing">Grouping and Summarizing</h2>
-<p>We can group the data by country and summarize the number of observations in each country.</p>
+<section id="agrupar-y-resumir" class="level2">
+<h2 class="anchored" data-anchor-id="agrupar-y-resumir">Agrupar y Resumir</h2>
+<p>Podemos agrupar los datos por país y resumir el número de observaciones en cada país.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>MomotoSummary <span class="ot">&lt;-</span> MomotoSelected <span class="sc">%&gt;%</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(COUNTRY) <span class="sc">%&gt;%</span> </span>
