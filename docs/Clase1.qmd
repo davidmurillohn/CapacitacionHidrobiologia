@@ -9,7 +9,7 @@ En esta clase aprederas como ingresar diferentes estructuras de datos a la inter
 Cargar base de datos
 
 ```{r}
-Momoto <- ("C:/Users/david/OneDrive - University of Massachusetts/HN Biology Investigation/Cursos/CapacitacionHidrobiologia/data/kebmot.txt")
+Momoto <- read.delim("C:/Users/david/OneDrive - University of Massachusetts/HN Biology Investigation/Cursos/CapacitacionHidrobiologia/data/kebmot.txt")
 ```
 
 ```{r}
