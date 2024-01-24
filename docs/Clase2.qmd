@@ -70,3 +70,23 @@ datos_aleatorios <- data.frame(
 
 ::: 
 
+
+## Resumenes de datos
+
+```{r}
+library(tidyverse)
+
+rope <- read_csv("data/rope.csv")
+```
+
+```{r}
+head(rope)
+```
+
+```{r}
+rope %>% 
+  group_by(blade, rope.type) %>% 
+  summarise(p.cut = mean(p.cut))
+```
+
+
