@@ -63,6 +63,16 @@ catrate %>%
   geom_point()+
   theme_classic()
 
+Fig <- catrate %>% 
+  mutate(years = factor(years)) %>% 
+  group_by(years, pond) %>% 
+  summarise(success = mean(success)) %>% 
+  ggplot(aes(pond, success, fill = years))+
+  geom_point()+
+  theme_classic()
+
+Fig
+
 ```
 
 
