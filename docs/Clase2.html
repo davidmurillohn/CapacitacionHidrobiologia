@@ -8,7 +8,7 @@
 
 <meta name="author" content="David Murillo">
 
-<title>Clase2</title>
+<title>Clase 2: Uso R Markdow y visualizacion de datos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -80,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Clase2</h1>
+<h1 class="title">Clase 2: Uso R Markdow y visualizacion de datos</h1>
 </div>
 
 
@@ -101,26 +101,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="quarto" class="level2">
-<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
-<p>Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <a href="https://quarto.org" class="uri">https://quarto.org</a>.</p>
+<section id="uso-de-r-markdown-con-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="uso-de-r-markdown-con-quarto">Uso de R Markdown con Quarto</h2>
+<p>En esta clase, exploraremos el poder de R Markdown, una herramienta versátil que permite la integración de texto y código de manera eficiente. En particular, nos enfocaremos en la implementación de R Markdown utilizando Quarto, una extensión que potencia las capacidades de generación de documentos.</p>
+<p>Estructura Básica de un Documento R Markdown R Markdown nos permite combinar explicaciones en texto con fragmentos de código R de una manera organizada. La estructura básica de un documento R Markdown consta de secciones de texto en formato Markdown intercaladas con bloques de código R. Aquí hay un ejemplo simple:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Ejemplo: Graficar la data “cars”</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Resultados Dinámicos</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">datos_aleatorios</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Resultados Dinámicos</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Clase2_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>En este ejemplo, se inicia con una explicación clara del objetivo, seguida por el código relevante en un bloque separado. Este enfoque facilita la lectura y comprensión del documento, haciendo que sea más accesible para otros usuarios.</p>
+</blockquote>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Una de las características más poderosas de R Markdown es su capacidad para generar resultados dinámicos. Esto significa que los resultados, como gráficos o tablas, se actualizan automáticamente cuando el código subyacente se modifica. Veamos un ejemplo práctico:</p>
+<section id="ejemplo-crear-una-tabla-con-datos-aleatorios" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-crear-una-tabla-con-datos-aleatorios">Ejemplo: Crear una tabla con datos aleatorios</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>datos_aleatorios <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">ID =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valor =</span> <span class="fu">runif</span>(<span class="dv">5</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="running-code" class="level2">
-<h2 class="anchored" data-anchor-id="running-code">Running Code</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>En este caso, cada vez que se ejecute el código, se generará una tabla con datos aleatorios y se mostrará automáticamente en el documento. Esto facilita la generación de informes dinámicos que pueden actualizarse fácilmente.</p>
+<p>Personalización del Documento Quarto agrega una capa adicional de personalización a los documentos R Markdown. Puedes ajustar la apariencia y el estilo del documento según tus necesidades. Aquí hay un ejemplo que muestra cómo agregar un título y cambiar el tema del documento:</p>
+<p>Este bloque de código utiliza las funciones específicas de Quarto para configurar el título del documento y cambiar el tema a “cerulean”. Puedes experimentar con diferentes temas para personalizar aún más la apariencia de tu informe.</p>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p>Una de las características más poderosas de R Markdown es su capacidad para generar resultados dinámicos. Esto significa que los resultados, como gráficos o tablas, se actualizan automáticamente cuando el código subyacente se modifica. Veamos un ejemplo práctico:</p>
+<section id="ejemplo-crear-una-tabla-con-datos-aleatorios-1" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-crear-una-tabla-con-datos-aleatorios-1">Ejemplo: Crear una tabla con datos aleatorios</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>datos_aleatorios <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">ID =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valor =</span> <span class="fu">runif</span>(<span class="dv">5</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 </div>
 </div>
-<p>You can add options to executable code like this</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
 </div>
-</div>
-<p>The <code>echo: false</code> option disables the printing of code (only output is displayed).</p>
 </section>
 
 </main>

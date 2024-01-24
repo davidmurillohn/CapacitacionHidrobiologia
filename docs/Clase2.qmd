@@ -1,26 +1,72 @@
 ---
-title: "Clase2"
+title: "Clase 2: Uso R Markdow y  visualizacion de datos"
 author: "David Murillo"
 format: html
 ---
 
-## Quarto
+## Uso de R Markdown con Quarto
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
 
-## Running Code
+En esta clase, exploraremos el poder de R Markdown, una herramienta versátil que permite la integración de texto y código de manera eficiente. En particular, nos enfocaremos en la implementación de R Markdown utilizando Quarto, una extensión que potencia las capacidades de generación de documentos.
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+Estructura Básica de un Documento R Markdown
+R Markdown nos permite combinar explicaciones en texto con fragmentos de código R de una manera organizada. La estructura básica de un documento R Markdown consta de secciones de texto en formato Markdown intercaladas con bloques de código R. Aquí hay un ejemplo simple:
 
-```{r}
-1 + 1
-```
+::: panel-tabset
 
-You can add options to executable code like this 
+## Ejemplo: Graficar la data "cars"
 
 ```{r}
-#| echo: false
-2 * 2
+plot(cars)
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+
+> En este ejemplo, se inicia con una explicación clara del objetivo, seguida por el código relevante en un bloque separado. Este enfoque facilita la lectura y comprensión del documento, haciendo que sea más accesible para otros usuarios.
+
+
+## Resultados Dinámicos
+
+Una de las características más poderosas de R Markdown es su capacidad para generar resultados dinámicos. Esto significa que los resultados, como gráficos o tablas, se actualizan automáticamente cuando el código subyacente se modifica. Veamos un ejemplo práctico:
+
+
+### Ejemplo: Crear una tabla con datos aleatorios
+
+```{r}
+set.seed(123)
+datos_aleatorios <- data.frame(
+  ID = 1:5,
+  Valor = runif(5)
+)
+
+```
+
+
+## datos_aleatorios
+
+En este caso, cada vez que se ejecute el código, se generará una tabla con datos aleatorios y se mostrará automáticamente en el documento. Esto facilita la generación de informes dinámicos que pueden actualizarse fácilmente.
+
+Personalización del Documento
+Quarto agrega una capa adicional de personalización a los documentos R Markdown. Puedes ajustar la apariencia y el estilo del documento según tus necesidades. Aquí hay un ejemplo que muestra cómo agregar un título y cambiar el tema del documento:
+
+
+Este bloque de código utiliza las funciones específicas de Quarto para configurar el título del documento y cambiar el tema a "cerulean". Puedes experimentar con diferentes temas para personalizar aún más la apariencia de tu informe.
+
+
+## Resultados Dinámicos
+
+Una de las características más poderosas de R Markdown es su capacidad para generar resultados dinámicos. Esto significa que los resultados, como gráficos o tablas, se actualizan automáticamente cuando el código subyacente se modifica. Veamos un ejemplo práctico:
+
+
+### Ejemplo: Crear una tabla con datos aleatorios
+
+```{r}
+set.seed(123)
+datos_aleatorios <- data.frame(
+  ID = 1:5,
+  Valor = runif(5)
+)
+
+```
+
+::: 
+
