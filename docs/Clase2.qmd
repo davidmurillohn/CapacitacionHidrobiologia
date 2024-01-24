@@ -70,23 +70,57 @@ datos_aleatorios <- data.frame(
 
 ::: 
 
+## Resumenes de datos 
 
-## Resumenes de datos
+::: panel-tabset
 
-```{r}
+## Ejemplo 1
+
+```{r, warning=FALSE, message=FALSE}
 library(tidyverse)
 
 rope <- read_csv("data/rope.csv")
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 head(rope)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 rope %>% 
   group_by(blade, rope.type) %>% 
   summarise(p.cut = mean(p.cut))
 ```
 
+## Ejemplo 2
 
+```{r}
+result1 <- rope %>%
+  group_by(rope.type) %>%
+  summarise(mean_strength = mean(p.strength, na.rm = TRUE))
+
+result1
+```
+
+
+## Elemplo 3
+
+```{r, warning=FALSE, message=FALSE}
+result2 <- rope %>%
+  group_by(blade) %>%
+  summarise(max_ch1 = max(ch1, na.rm = TRUE))
+
+result2
+```
+
+## Ejemplo 4
+
+```{r, warning=FALSE, message=FALSE}
+result3 <- rope %>%
+  group_by(blade, rope.type) %>%
+  summarise(count = n())
+
+result3
+```
+
+:::
