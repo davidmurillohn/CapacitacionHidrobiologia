@@ -16,7 +16,7 @@ R Markdown nos permite combinar explicaciones en texto con fragmentos de código
 
 ## Ejemplo: Graficar la data "cars"
 
-```{r}
+```{r, fig.keep='all'}
 plot(cars)
 ```
 

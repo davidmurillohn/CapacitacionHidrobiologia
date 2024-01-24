@@ -54,7 +54,7 @@ catrate %>%
 
 **Resultado 2**
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.keep='all'}
 catrate %>% 
   mutate(years = factor(years)) %>% 
   group_by(years, pond) %>% 
