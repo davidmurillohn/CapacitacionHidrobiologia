@@ -67,6 +67,9 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="asiganaciones" class="level1">
+<h1>Asiganaciones</h1>
+<p>::: panel-tabset</p>
 <section id="ejercicio-1" class="level2">
 <h2 class="anchored" data-anchor-id="ejercicio-1">Ejercicio 1</h2>
 <p>Con la base de datos “penguins_size.csv”, sigue las siguientes instrucciones:</p>
@@ -86,6 +89,52 @@ ul.task-list li input[type="checkbox"] {
 <li>Presentar el resumen de alguna variable, por sexo y por isla:</li>
 </ul>
 <p>Utiliza funciones de resumen estadístico para presentar información relevante sobre alguna variable de interés, considerando la distinción por sexo y por isla. Puede ser útil visualizar esta información de manera clara y comprensible.</p>
+</section>
+<section id="ejercicio-2" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-2">Ejercicio 2</h2>
+<p>Creación de un R Markdown en Quarto o R Notebook para el Análisis de la Base de Datos “catrate.csv”</p>
+<p>El objetivo de este ejercicio es utilizar la base de datos “catrate.csv” para generar un informe interactivo en formato HTML. A través de un R Markdown en Quarto o un R Notebook, presentaremos tanto una tabla como un gráfico relacionados con la información contenida en dicha base de datos.</p>
+<p>Base de datos</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  pond success years  cat.rate
+1    2       5     7 0.2857143
+2    3       5     7 0.2857143
+3    4       6     7 0.1428571
+4    5       4     7 0.4285714
+5    6       0     7 1.0000000
+6    7       1     4 0.7500000</code></pre>
+</div>
+</div>
+<p><strong>Resultado 1</strong></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 13 × 3
+# Groups:   years [4]
+   years  pond success
+   &lt;fct&gt; &lt;int&gt;   &lt;dbl&gt;
+ 1 1         8       0
+ 2 1        14       0
+ 3 3        10       2
+ 4 3        11       2
+ 5 3        13       1
+ 6 4         7       1
+ 7 4         9       2
+ 8 7         2       5
+ 9 7         3       5
+10 7         4       6
+11 7         5       4
+12 7         6       0
+13 7        12       5</code></pre>
+</div>
+</div>
+<p><strong>Resultado 2</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="Asignacion_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
 </section>
 
 </main>
