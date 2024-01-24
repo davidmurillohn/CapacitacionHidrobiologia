@@ -16,16 +16,20 @@ La constante evolución en el ámbito de la investigación biológica demanda el
 
 [Asignacion](Asignacion.html)
 
-[Clase 1: Ingreso de datos](Clase1.html)
+[Clase 1: Ingreso de datos, Limpieza y filtrado de datos](Clase1.html)
 
  - Uso de scripts
- - Uso de R Markdown
  - Ingreso de datos
  - Filtrado de datos
  - Selección de variables
  - Agrupar y resumir
 
-[Clase 2: Limpieza y filtrado de datos](Clase2.html)
+[Clase 2: Uso R Markdow y  visualizacion de datos](Clase2.html)
+
+ - Uso de R Markdown
+ - Agrupar y resumir datos
+ - Visualizar datos
+ 
 
 [Clase 3: Vizualisacion de datos](Clase3.html)
 
