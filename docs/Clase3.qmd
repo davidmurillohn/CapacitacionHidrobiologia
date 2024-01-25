@@ -1,26 +1,72 @@
 ---
-title: "Clase3"
+title: "Clase 3: Manejo de datos avanzado"
 author: "David Murillo"
 format: html
 ---
 
-## Quarto
+Para esta clase, emplearemos una base de datos que contiene observaciones de conteo puntual realizadas en Yoro, Honduras, durante el año 2016. La base de datos se encuentra en estado "crudo", y nuestro objetivo será organizarla para obtener una base de datos que sea analizable con las técnicas estadísticas más modernas.
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+::: panel-tabset
 
-## Running Code
+# Ingreso de datos
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+```{r, warning=FALSE, message=FALSE}
 
-```{r}
-1 + 1
+library(tidyverse)
+
+BirdData_1R <- read_delim("~/R/GitHub Cursos HN/CapacitacionHidrobiologia/data/Replic1_birds.csv", 
+     delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+BirdData_2R <- read_delim("~/R/GitHub Cursos HN/CapacitacionHidrobiologia/data/Replic2_birds.csv", 
+     delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+BirdData_3R <- read_delim("~/R/GitHub Cursos HN/CapacitacionHidrobiologia/data/Replic3_birds.csv", 
+     delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
 ```
 
-You can add options to executable code like this 
+
+# Limpieza y Unirs tablas
 
 ```{r}
-#| echo: false
-2 * 2
+BirdData_1R_clean <- BirdData_1R %>% 
+  rename("Point" = "Site",
+         "PointName" = `Sitio #`,
+         "SityName" = `Sitio nombre`,
+         "Date" = `Fecha (m/d/a)`,
+         "Time"= `Hora(0:00-24:00)`) %>% 
+  select(-Nota)
+
+BirdData_2R_clean <- BirdData_2R %>% 
+  rename("Point" = `Sitio #...1`,
+         "PointName" = `Sitio #...2`,
+         "SityName" = `Sitio nombre`,
+         "Date" = `Fecha (m/d/a)`,
+         "Time"= `Hora(0:00-24:00)`)
+
+BirdData_3R_clean <- BirdData_3R %>% 
+  rename("Point" = `Sitio #...1`,
+         "PointName" = `Sitio #...2`,
+         "SityName" = `Sitio nombre`,
+         "Date" = `Fecha (m/d/a)`,
+         "Time"= `Hora(0:00-24:00)`)
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+```{r}
+head(BirdData_1R_clean)
+```
+
+
+# Crear variables resumenes
+
+# Cambiar formato de tablas
+
+# Limpiar variables de habitat
+
+# Crear variables de habitat
+
+# Unir datos de habitat con observaciones de aves
+
+# Graficado de datos
+
+:::
