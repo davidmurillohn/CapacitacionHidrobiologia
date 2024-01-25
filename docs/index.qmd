@@ -31,9 +31,17 @@ La constante evolución en el ámbito de la investigación biológica demanda el
  - Visualizar datos
  
 
-[Clase 3: Vizualisacion de datos](Clase3.html)
+[Clase 3: Procesamiento de datos](Clase3.html)
+
+ - Ingreso de base de datos crudos
+ - Limpieza y filtrado de datos
+ - Agrupamiento y resumenes de datos
+ - Unir base de datos
+ - Graficar en base a modelos estadisticos
 
 [Clase 4: Presentacion de los resultados](Clase4.html)
+
+ - Uso de GitHub
 
 
 ![HN Biology Investigation](imagenes/HN Biology Inv large.jpg)
