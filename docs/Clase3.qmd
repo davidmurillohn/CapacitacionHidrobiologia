@@ -167,4 +167,16 @@ head(FullData)
 
 # Graficado de datos
 
+```{r, warning=FALSE, message=FALSE}
+ggplot(data= FullData, aes(x= Area_Basal, y= CARPUS))+
+  geom_point()+
+  stat_smooth(method = glm, method.args = list(family = "poisson"),
+              fill = "lightblue")+
+  labs(title = "Relacionde cardelina pusilla versus Area basal",
+       y= "Abundancia CARPUS", x= "Area basal")+
+  theme_classic() 
+
+```
+
+
 :::
