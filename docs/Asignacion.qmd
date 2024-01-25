@@ -72,8 +72,13 @@ Fig <- catrate %>%
   theme_classic()
 
 Fig
-
 ```
+
+
+## Ejercicio 3
+
+Realizar la limpieza de datos correspondiente, filtrar y unificar las tablas de hábitat y aves, y generar un gráfico que exhiba la relación entre la hora (u otra variable distinta de la zona) y las aves que no sean CARPUS. En el gráfico se debe visualizar la relación según el tipo de sitio: "C" o "F".
+
 
 
 ::: 
