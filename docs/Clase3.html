@@ -103,7 +103,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>Para esta clase, emplearemos una base de datos que contiene observaciones de conteo puntual realizadas en Yoro, Honduras, durante el año 2016. La base de datos se encuentra en estado “crudo”, y nuestro objetivo será organizarla para obtener una base de datos que sea analizable con las técnicas estadísticas más modernas.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Ingreso de datos</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Limpieza y Unirs tablas</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Crear variables resumenes</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Cambiar formato de tablas</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">Limpiar variables de habitat</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false" href="">Crear variables de habitat</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-7" role="tab" aria-controls="tabset-1-7" aria-selected="false" href="">Unir datos de habitat con observaciones de aves</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-8-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-8" role="tab" aria-controls="tabset-1-8" aria-selected="false" href="">Graficado de datos</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Ingreso de datos</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Limpieza y Unirs tablas</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Cambiar formato de tablas</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Limpiar variables de habitat</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">Crear variables de habitat</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false" href="">Unir datos de habitat con observaciones de aves</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-7" role="tab" aria-controls="tabset-1-7" aria-selected="false" href="">Graficado de datos</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
@@ -143,41 +143,210 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Date"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">Fecha (m/d/a)</span><span class="st">`</span>,</span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Time"</span><span class="ot">=</span> <span class="st">`</span><span class="at">Hora(0:00-24:00)</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Unir base de datos</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(BirdData_1R_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>AllBirdData <span class="ot">&lt;-</span> <span class="fu">rbind</span>(BirdData_1R_clean, BirdData_2R_clean, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                     BirdData_3R_clean) <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Date =</span> <span class="fu">mdy</span>(Date)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Date =</span> <span class="fu">yday</span>(Date)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(Time, <span class="fu">c</span>(<span class="st">"Time"</span>, <span class="st">"M"</span>), <span class="at">sep =</span><span class="st">":"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Time =</span> <span class="fu">str_c</span>(Time, M)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Time =</span> <span class="fu">as.numeric</span>(Time)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">PointName =</span> <span class="fu">str_replace</span>(PointName, <span class="st">"F"</span> , <span class="st">"_F"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">PointName =</span> <span class="fu">str_replace</span>(PointName, <span class="st">"C"</span>, <span class="st">"_C"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(PointName, <span class="fu">c</span>(<span class="st">"PointName"</span>, <span class="st">"SiteType"</span> )) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 469 rows [393, 394, 395,
+396, 397, 398, 399, 400, 401, 402, 1102, 1103, 1104, 1105, 1106, 1107, 1108,
+1109, 1110, 1111, ...].</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 2 rows [1101,
+1290].</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(AllBirdData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 26
-  Point PointName SityName   Date  Time  Viento Cielo   Rio Especies `Num. 0-50`
-  &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;
-1 1     1F        El Plan d… 2/10… 08:02      0     3     0 PSAMON             2
-2 1     1F        El Plan d… 2/10… 08:02      0     3     0 AMACYC*            1
-3 1     1F        El Plan d… 2/10… 08:02      0     3     0 GLABRA             1
-4 1     1F        El Plan d… 2/10… 08:02      0     3     0 PSIMOR             1
-5 1     1F        El Plan d… 2/10… 08:02      0     3     0 CYAMEL             3
-6 1     1F        El Plan d… 2/10… 08:02      0     3     0 SALATR             2
-# ℹ 16 more variables: `Num. &gt;50-100` &lt;dbl&gt;, `Num. &gt;100` &lt;dbl&gt;, Sex &lt;chr&gt;,
-#   `1` &lt;dbl&gt;, `2` &lt;dbl&gt;, `3` &lt;dbl&gt;, `4` &lt;dbl&gt;, `5` &lt;dbl&gt;, `6` &lt;dbl&gt;,
-#   `7` &lt;dbl&gt;, `8` &lt;dbl&gt;, `9` &lt;dbl&gt;, `10` &lt;dbl&gt;, `11` &lt;dbl&gt;, `12` &lt;dbl&gt;,
-#   Sequence &lt;chr&gt;</code></pre>
+<pre><code># A tibble: 6 × 28
+  Point PointName SiteType SityName          Date  Time M     Viento Cielo   Rio
+  &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 1     1         F        El Plan de Tule…    41   802 02         0     3     0
+2 1     1         F        El Plan de Tule…    41   802 02         0     3     0
+3 1     1         F        El Plan de Tule…    41   802 02         0     3     0
+4 1     1         F        El Plan de Tule…    41   802 02         0     3     0
+5 1     1         F        El Plan de Tule…    41   802 02         0     3     0
+6 1     1         F        El Plan de Tule…    41   802 02         0     3     0
+# ℹ 18 more variables: Especies &lt;chr&gt;, `Num. 0-50` &lt;dbl&gt;, `Num. &gt;50-100` &lt;dbl&gt;,
+#   `Num. &gt;100` &lt;dbl&gt;, Sex &lt;chr&gt;, `1` &lt;dbl&gt;, `2` &lt;dbl&gt;, `3` &lt;dbl&gt;, `4` &lt;dbl&gt;,
+#   `5` &lt;dbl&gt;, `6` &lt;dbl&gt;, `7` &lt;dbl&gt;, `8` &lt;dbl&gt;, `9` &lt;dbl&gt;, `10` &lt;dbl&gt;,
+#   `11` &lt;dbl&gt;, `12` &lt;dbl&gt;, Sequence &lt;chr&gt;</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-
+<p>Pasar de un formato largo a un ancho</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>DataBirds_vegan <span class="ot">&lt;-</span> AllBirdData <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">Num. 0-50</span><span class="st">`</span> <span class="ot">=</span>  <span class="fu">as.numeric</span>(<span class="st">`</span><span class="at">Num. 0-50</span><span class="st">`</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(PointName, SiteType, Date, Especies) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Abundance =</span> <span class="fu">max</span>(<span class="st">`</span><span class="at">Num. 0-50</span><span class="st">`</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Especies, <span class="at">values_from =</span> Abundance, </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_fill =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'PointName', 'SiteType', 'Date'. You can
+override using the `.groups` argument.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>BirdsData <span class="ot">&lt;-</span> DataBirds_vegan <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"Site"</span> <span class="ot">=</span> <span class="st">"PointName"</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Type"</span> <span class="ot">=</span> <span class="st">"SiteType"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Site =</span> <span class="fu">factor</span>(Site))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>TreesQ <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"~/R/GitHub Cursos HN/CapacitacionHidrobiologia/data/TreesQ.csv"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>HistQ <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"~/R/GitHub Cursos HN/CapacitacionHidrobiologia/data/HistQ.csv"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>VegData <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"~/R/GitHub Cursos HN/CapacitacionHidrobiologia/data/VegData.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 <div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
-
+<p>Estimacion de area basal</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Area_basal <span class="ot">&lt;-</span> TreesQ <span class="sc">%&gt;%</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">VEGID =</span> <span class="fu">factor</span>(VEGID)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Species =</span> <span class="fu">factor</span>(Species)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(VEGID) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Area_Basal =</span> <span class="dv">2</span><span class="sc">*</span>(A<span class="sc">*</span> <span class="fl">0.1</span> <span class="sc">+</span> B<span class="sc">*</span> <span class="fl">0.3</span> <span class="sc">+</span> C<span class="sc">*</span> <span class="fl">0.8</span> <span class="sc">+</span> D<span class="sc">*</span><span class="fl">1.8</span> <span class="sc">+</span> E<span class="sc">*</span><span class="fl">3.1</span> <span class="sc">+</span> F <span class="sc">*</span><span class="fl">4.9</span> <span class="sc">+</span> G<span class="sc">*</span><span class="fl">7.1</span> <span class="sc">+</span> H<span class="sc">*</span><span class="fl">0.05</span> )) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(VEGID) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Area_Basal =</span> <span class="fu">sum</span>(Area_Basal))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Returning more (or less) than 1 row per `summarise()` group was deprecated in
+dplyr 1.1.0.
+ℹ Please use `reframe()` instead.
+ℹ When switching from `summarise()` to `reframe()`, remember that `reframe()`
+  always returns an ungrouped data frame and adjust accordingly.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'VEGID'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Area_basal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  VEGID Area_Basal
+  &lt;fct&gt;      &lt;dbl&gt;
+1 1           10  
+2 10P          8.6
+3 11P          4.3
+4 12P         22.7
+5 13P         16.6
+6 14P         18.6</code></pre>
+</div>
+</div>
+<p>Crear variable de covertura</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Group_cober <span class="ot">&lt;-</span> HistQ <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(VEGID) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Group_cover =</span> <span class="fu">sum</span>(A, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)<span class="sc">+</span><span class="fu">sum</span>(B, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)<span class="sc">+</span><span class="fu">sum</span>(C, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">Subcanopy =</span> <span class="fu">sum</span>(D, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> <span class="fu">sum</span>(E, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Group_cober)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  VEGID Group_cover Subcanopy
+  &lt;chr&gt;       &lt;int&gt;     &lt;int&gt;
+1 1              13         6
+2 10P             2        18
+3 11P             7        13
+4 12P             9        11
+5 13P            19         1
+6 14P            20         0</code></pre>
+</div>
+</div>
+<p>Unir variables de habitat</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Veg_data_full_cover <span class="ot">&lt;-</span> Area_basal <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(Group_cober, <span class="at">by=</span> <span class="st">"VEGID"</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>Habitat <span class="ot">&lt;-</span> Veg_data_full_cover <span class="sc">%&gt;%</span> </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(VegData, <span class="at">by =</span> <span class="st">"VEGID"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Habitat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 26
+  VEGID Area_Basal Group_cover Subcanopy  Site SiteName        Type  LAT   LONG 
+  &lt;chr&gt;      &lt;dbl&gt;       &lt;int&gt;     &lt;int&gt; &lt;int&gt; &lt;chr&gt;           &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+1 1           10            13         6     1 El Plan de Tul… F     15.2… -87.…
+2 10P          8.6           2        18    10 Finca de Agust… C     15.1… -87.…
+3 11P          4.3           7        13    11 Finca de Franc… C     15.1… -87.…
+4 12P         22.7           9        11    12 Finca de Ovidio C     15.1… -87.…
+5 13P         16.6          19         1    13 Zapote Fragment F     15.1… -87.…
+6 14P         18.6          20         0    14 El bosque bajo… F     15.1… -87.…
+# ℹ 17 more variables: ALTITUDE &lt;chr&gt;, Aspect &lt;int&gt;, Slope &lt;chr&gt;,
+#   Description &lt;chr&gt;, Understory &lt;chr&gt;, Moss &lt;chr&gt;, H2O &lt;chr&gt;, Edge &lt;chr&gt;,
+#   habitat &lt;chr&gt;, edgedist &lt;int&gt;, edgetype &lt;chr&gt;, pforest. &lt;int&gt;,
+#   sforest. &lt;int&gt;, natdist. &lt;int&gt;, pasture. &lt;int&gt;, coffee. &lt;int&gt;, note &lt;chr&gt;</code></pre>
+</div>
+</div>
 </div>
 <div id="tabset-1-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-6-tab">
-
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(DataBirds_vegan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 139
+# Groups:   PointName, SiteType, Date [6]
+  PointName SiteType  Date `AMACYC*` ARCCOL CYAMEL EMPMIN GLABRA MELAUR PSAMON
+  &lt;chr&gt;     &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 1         F           41         1      1      3      1      1      1      2
+2 1         F           79         1      0      0      0      1      0      0
+3 1         F           91         0      0      0      0      0      0      0
+4 10        C           54         0      0      0      0      0      1      1
+5 10        C           68         0      0      0      0      1      0      0
+6 12        C           42         0      0      0      0      0      3      4
+# ℹ 129 more variables: PSIMOR &lt;dbl&gt;, SALATR &lt;dbl&gt;, `CAEAUR*` &lt;dbl&gt;,
+#   CORATR &lt;dbl&gt;, CYCGUJ &lt;dbl&gt;, FALSPA &lt;dbl&gt;, DIVDIV &lt;dbl&gt;, ICTCHR &lt;dbl&gt;,
+#   MELFOR &lt;dbl&gt;, AULPRA &lt;dbl&gt;, BASRUF &lt;dbl&gt;, CARPUS &lt;dbl&gt;, DUMCAR &lt;dbl&gt;,
+#   HENLEU &lt;dbl&gt;, VERCRY &lt;dbl&gt;, AMARUT &lt;dbl&gt;, `EMPFLT*` &lt;dbl&gt;, SALMAX &lt;dbl&gt;,
+#   SETVIR &lt;dbl&gt;, TROCAL &lt;dbl&gt;, VIRPHI &lt;dbl&gt;, PIOSEN &lt;dbl&gt;, SETCIT &lt;dbl&gt;,
+#   SETMAG &lt;dbl&gt;, SETPEN &lt;dbl&gt;, SETRUT &lt;dbl&gt;, ELAFOR &lt;dbl&gt;, LEPSOU &lt;dbl&gt;,
+#   OREPER &lt;dbl&gt;, PSAWAG &lt;dbl&gt;, TOLSUL &lt;dbl&gt;, TURGRA &lt;dbl&gt;, VERPIN &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>Habitat <span class="ot">&lt;-</span> Habitat <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Site =</span> <span class="fu">factor</span>(Site))</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>BirdsData <span class="ot">&lt;-</span> BirdsData <span class="sc">%&gt;%</span> </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Site =</span> <span class="fu">factor</span>(Site))</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>FullData <span class="ot">&lt;-</span> Habitat <span class="sc">%&gt;%</span> </span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(BirdsData, <span class="at">by =</span> <span class="st">"Site"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(FullData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 164
+  VEGID Area_Basal Group_cover Subcanopy Site  SiteName       Type.x LAT   LONG 
+  &lt;chr&gt;      &lt;dbl&gt;       &lt;int&gt;     &lt;int&gt; &lt;fct&gt; &lt;chr&gt;          &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;
+1 1           10            13         6 1     El Plan de Tu… F      15.2… -87.…
+2 1           10            13         6 1     El Plan de Tu… F      15.2… -87.…
+3 1           10            13         6 1     El Plan de Tu… F      15.2… -87.…
+4 10P          8.6           2        18 10    Finca de Agus… C      15.1… -87.…
+5 10P          8.6           2        18 10    Finca de Agus… C      15.1… -87.…
+6 11P          4.3           7        13 11    Finca de Fran… C      15.1… -87.…
+# ℹ 155 more variables: ALTITUDE &lt;chr&gt;, Aspect &lt;int&gt;, Slope &lt;chr&gt;,
+#   Description &lt;chr&gt;, Understory &lt;chr&gt;, Moss &lt;chr&gt;, H2O &lt;chr&gt;, Edge &lt;chr&gt;,
+#   habitat &lt;chr&gt;, edgedist &lt;int&gt;, edgetype &lt;chr&gt;, pforest. &lt;int&gt;,
+#   sforest. &lt;int&gt;, natdist. &lt;int&gt;, pasture. &lt;int&gt;, coffee. &lt;int&gt;, note &lt;chr&gt;,
+#   Type.y &lt;chr&gt;, Date &lt;dbl&gt;, `AMACYC*` &lt;dbl&gt;, ARCCOL &lt;dbl&gt;, CYAMEL &lt;dbl&gt;,
+#   EMPMIN &lt;dbl&gt;, GLABRA &lt;dbl&gt;, MELAUR &lt;dbl&gt;, PSAMON &lt;dbl&gt;, PSIMOR &lt;dbl&gt;,
+#   SALATR &lt;dbl&gt;, `CAEAUR*` &lt;dbl&gt;, CORATR &lt;dbl&gt;, CYCGUJ &lt;dbl&gt;, FALSPA &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
 </div>
 <div id="tabset-1-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-7-tab">
-
-</div>
-<div id="tabset-1-8" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-8-tab">
 
 </div>
 </div>
